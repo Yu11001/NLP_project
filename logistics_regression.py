@@ -6,6 +6,8 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, classification_report
 
 import streamlit as st
+import warnings
+warnings.filterwarnings("ignore")
 
 # import preprocessing
 
