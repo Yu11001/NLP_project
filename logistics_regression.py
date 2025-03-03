@@ -1,9 +1,3 @@
-import preprocessing
-
-cleaned_data = preprocessing.data
-
-cleaned_data.head()
-
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
@@ -12,6 +6,12 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, classification_report
 
 import streamlit as st
+
+# import preprocessing
+
+cleaned_data = pd.read_csv('data/MBTI500.csv')
+
+cleaned_data.head()
 
 cleaned_data['type'] = cleaned_data['type'].map({'I': 0, 'E': 1})
 
