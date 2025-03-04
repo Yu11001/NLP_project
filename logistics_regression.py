@@ -10,10 +10,9 @@ import warnings
 warnings.filterwarnings("ignore")
 
 # import preprocessing
+import preprocessing
 
-cleaned_data = pd.read_csv('data/MBTI500.csv')
-
-cleaned_data.head()
+cleaned_data = preprocessing.data
 
 cleaned_data['type'] = cleaned_data['type'].map({'I': 0, 'E': 1})
 
