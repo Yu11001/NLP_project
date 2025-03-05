@@ -33,8 +33,8 @@ grid_search.fit(X_train_tfidf, y_train)
 model = grid_search.best_estimator_
 
 # Save model and vectorizer
-joblib.dump(model, 'mbti_model.pkl')
-joblib.dump(vectorizer, 'tfidf_vectorizer.pkl')
+joblib.dump(model, 'pkl/mbti_model.pkl')
+joblib.dump(vectorizer, 'pkl/tfidf_vectorizer.pkl')
 
 # Evaluate model
 y_pred = model.predict(X_test_tfidf)

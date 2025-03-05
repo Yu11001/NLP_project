@@ -2,35 +2,35 @@
 
 ## 📌 Project Overview
 
-This project aims to predict MBTI personality types based on chat and text records using Natural Language Processing (NLP). It leverages machine learning techniques to analyze text and classify personality types.
+This project aims to predict whether 'Extrovert' or 'Introvert' personality types based on posts and text records using Natural Language Processing (NLP). It leverages 2 machine learning and 1 deep learning techniques to analyze text and classify personality types.
 
 ## 🚀 Features
 
-- **MBTI Personality Classification**: Predicts personality types based on text input.
+- **Personality Classification**: Predicts personality types based on text input.
 - **Machine Learning Models**: Utilizes NLP techniques for feature extraction and classification.
-- **Web Interface**: Displays results interactively (if applicable).
-- **Dataset Management**: Handles large datasets efficiently.
+- **Web Interface**: Displays results interactively.
 
 ## 📂 Project Structure
 
 ```
-├── data/                    # Contains datasets (ignored in GitHub)
-│   ├── MBTI500.csv          # Large dataset (download manually)
-├── models/                  # Trained models (if any)
-├── src/                     # Source code
-│   ├── preprocessing.py      # Data cleaning and preparation
-│   ├── model.py             # Machine learning model
-│   ├── train.py             # Training script
-│   ├── predict.py           # Prediction script
-├── notebooks/               # Jupyter notebooks for analysis
-├── requirements.txt         # Required Python packages
-├── .gitignore               # Ignored files
-└── README.md                # This file
+├── data/                                 # Contains datasets
+│   ├── MBTI500.csv                       # original dataset
+│   ├── cleaned.csv                       # cleaned dataset after running `preprocessing.py`
+├── models/                               # Trained models
+│   ├── logistics_regression_model.py     # LR model
+├── pkl/                                  # to store the pkl file
+│   ├── mbti_model.pkl                    # Data cleaning and preparation
+│   ├── tfidf_vectorizer.pkl              # Machine learning model
+├── app.py                                # combine 3 models
+├── logistics_app.py                      # LR model interface
+├── preprocessing.py                      # preprocessing file
+├── requirements.txt                      # Required Python packages
+└── README.md                             # This file
 ```
 
 ## 📥 Dataset
 
-The dataset is too large for GitHub. pls keep gitignore to ignore the `data/MBTI500.csv`:
+`data/MBTI500.csv`: original dataset
 
 ## ⚙️ Installation & Setup
 
@@ -39,6 +39,10 @@ The dataset is too large for GitHub. pls keep gitignore to ignore the `data/MBTI
    ```bash
    git clone https://github.com/Yu11001/NLP_project.git
    cd NLP_project
+   python preprocessing.py
+   python models/logistics_regression_model.py
+   pip install streamlit #in case your environment doesn't have it
+   streamlit run logistics_app.py # for running logistics_regression model
    ```
 
 ## 🛠 Technologies Used
