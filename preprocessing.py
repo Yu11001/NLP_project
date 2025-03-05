@@ -14,8 +14,11 @@ nltk.download('wordnet')
 
 
 data = pd.read_csv('data/MBTI500.csv')
+data = data.sample(frac=1, random_state=42).reset_index(drop=True)
 
 def clean_text(text):
+    if pd.isna(text):  # Ensure text is not NaN
+        return ""
 
     text = text.lower()
     
@@ -40,4 +43,6 @@ def clean_text(text):
 
 data['posts'] = data['posts'].apply(clean_text)
 
-data['type'] = data['type'].str[0]
+data['type'] = data['type'].str[0].fillna('I')
+
+data.to_csv('data/cleaned.csv', index=False)
